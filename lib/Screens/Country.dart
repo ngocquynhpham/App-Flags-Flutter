@@ -79,8 +79,39 @@ class Country extends StatelessWidget {
                 ),
               ),
               back: CountryDetailCard(
-                title: country['currencies'][0]['name'],
-                color: Colors.blue,
+                title: country['currencies'][0]['code'] +
+                    "(" +
+                    country['currencies'][0]['symbol'] +
+                    ")",
+                color: primaryBlue,
+              ),
+            ),
+            FlipCard(
+              direction: FlipDirection.VERTICAL,
+              front: CountryCard(
+                title: 'Native Name',
+                icon: Icon(
+                  Icons.note_alt_outlined,
+                  color: Colors.brown,
+                ),
+              ),
+              back: CountryDetailCard(
+                title: country['nativeName'],
+                color: primary,
+              ),
+            ),
+            FlipCard(
+              direction: FlipDirection.VERTICAL,
+              front: CountryCard(
+                title: 'Calling Code ',
+                icon: Icon(
+                  Icons.code,
+                  color: greyb,
+                ),
+              ),
+              back: CountryDetailCard(
+                title: "+" + country['callingCodes'][0],
+                color: textIntro,
               ),
             ),
           ],
@@ -92,7 +123,7 @@ class Country extends StatelessWidget {
 
 class CountryDetailCard extends StatelessWidget {
   final String title;
-  final MaterialColor color;
+  final Color color;
   CountryDetailCard({this.title, this.color});
 
   @override
