@@ -38,20 +38,6 @@ class Country extends StatelessWidget {
             FlipCard(
               direction: FlipDirection.VERTICAL,
               front: CountryCard(
-                title: 'Population',
-                icon: Icon(
-                  Icons.groups,
-                  color: primaryBlue,
-                ),
-              ),
-              back: CountryDetailCard(
-                title: country['population'].toString(),
-                color: Colors.deepPurple,
-              ),
-            ),
-            FlipCard(
-              direction: FlipDirection.VERTICAL,
-              front: CountryCard(
                 title: 'Flag',
                 icon: Icon(
                   Icons.flag_rounded,
@@ -112,6 +98,20 @@ class Country extends StatelessWidget {
               back: CountryDetailCard(
                 title: "+" + country['callingCodes'][0],
                 color: textIntro,
+              ),
+            ),
+            FlipCard(
+              direction: FlipDirection.VERTICAL,
+              front: CountryCard(
+                title: 'Region',
+                icon: Icon(
+                  Icons.wrap_text,
+                  color: Colors.blue,
+                ),
+              ),
+              back: CountryDetailCard(
+                title: country['region'],
+                color: Colors.deepPurple,
               ),
             ),
           ],
